@@ -6,10 +6,9 @@ create table user(
 
 
 create table tweet(
-	-- id INTEGER PRIMARY KEY,
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
 	user_id INTEGER NOT NULL,
-	text varchar(160) NOT NULL,
+	text varchar(1000) NOT NULL UNIQUE,
 	count INTEGER DEFAULT 0,
-	PRIMARY KEY (user_id, text)
 	FOREIGN KEY(user_id) REFERENCES user(id)
 );
