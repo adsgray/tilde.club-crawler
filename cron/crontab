@@ -1,0 +1,2 @@
+30 0,1,2,13-23 * * * /home/agray/bin/tweet_fortune
+0,15,45 0,1,2,13-23 * * * /home/agray/bin/tweet_tilde_quote
