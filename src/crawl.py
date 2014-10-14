@@ -61,7 +61,12 @@ def add_sentences_for_user(con, sentences, userid):
             	s = sub('[ \t\r\n]+', ' ', s)
 		add_tweet = ("INSERT INTO tweet (user_id, text) VALUES(?, ?)")
 		tweet_data = (userid, s)
-		cur.execute(add_tweet, tweet_data)
+		# don't stop on first error for a user...
+		try:
+			cur.execute(add_tweet, tweet_data)
+		except Exception as e:
+			print "Error %s %s:" % (e,userid)
+			continue
 
 
 def process_user(con, url, userid):
@@ -70,7 +75,7 @@ def process_user(con, url, userid):
 		sentences = get_sentences_from_stream(web)
 		add_sentences_for_user(con, sentences, userid)
 	except Exception as e:
-		print "Error %s:" % e
+		print "Error %s %s:" % (e,url)
 		return
 	
 
