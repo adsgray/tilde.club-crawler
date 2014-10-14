@@ -1,6 +1,4 @@
 # Other nodes in the tilde galaxy
 
-* totallynuclear.club
-* tilde.farm
-* tilde.town
+* http://tilde.club/~pfhawkins/othertildes.html
 
