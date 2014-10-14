@@ -1,7 +1,17 @@
--- tilde.club users. 
+
+create table site(
+	id INTEGER PRIMARY KEY,
+	name varchar(100),
+	baseurl varchar(100),
+	recentmodpath varchar(100)
+);
+
+-- tilde.club and affiliated users. 
 create table user(
 	id INTEGER PRIMARY KEY,
-	name varchar(100)
+	site_id INTEGER,
+	name varchar(100),
+	FOREIGN KEY(site_id) REFERENCES site(id)
 );
 
 
