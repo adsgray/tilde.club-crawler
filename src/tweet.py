@@ -8,9 +8,9 @@ import random
 from subprocess import call
 
 
-def get_random_tweets(con, num):
+def get_random_tweets(con, num, min_site):
 	cur = con.cursor()
-	cur.execute('select t.id,t.text,u.name,s.baseurl from tweet as t inner join user as u on (u.id = t.user_id) inner join site as s on (s.id = u.site_id) where LENGTH(t.text) < 118 AND t.count=0;');
+	cur.execute('select t.id,t.text,u.name,s.baseurl from tweet as t inner join user as u on (u.id = t.user_id) inner join site as s on (s.id = u.site_id) where LENGTH(t.text) < 118 AND t.count=0 AND s.id >= %s;' % (min_site));
 	
 	rows = cur.fetchall()
 	random.shuffle(rows)
@@ -41,7 +41,11 @@ def fire_tweets(tweets):
 con = lite.connect('/home/agray/code/db/fortune.db')
 
 try:
-	tweets = get_random_tweets(con, 1)
+	if len(sys.argv) == 2:
+		min_site = sys.argv[1]
+	else:
+		min_site = 1
+	tweets = get_random_tweets(con, 1, min_site)
 	tweet_strings = construct_tweet_strings(tweets)
 	fire_tweets(tweet_strings)
 	mark_as_used(con, tweets)
