@@ -3,5 +3,5 @@
 export PATH=$PATH:~/bin:~/code/db/src
 
 # replace newline with space as TTYtter treats each line as a separate tweet.
-tweet.py | TTYtter.pl > /dev/null 2>&1
+tweet.py $* | TTYtter.pl > /dev/null 2>&1
 
