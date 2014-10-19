@@ -1,0 +1,6 @@
+#!/bin/sh
+
+PATH=$PATH:~/code/db/src
+DEST=~/public_html/pages/prolific/report.json
+
+report.py json | json_pp > $DEST
