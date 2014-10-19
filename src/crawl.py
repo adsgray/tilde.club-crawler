@@ -6,6 +6,7 @@ import json
 from re import sub
 import sqlite3 as lite
 import sys
+import time
 
 dbpath = '/home/agray/code/db/fortune.db'
 
@@ -93,6 +94,7 @@ def process_all_users():
 			try:
 				url = row[0].encode('utf-8') + '/~' + row[1].encode('utf-8')
 				process_user(con, url, row[2])
+				time.sleep(1)
 			except UnicodeDecodeError:
 				print "could not construct url from: " + str(row)
 				continue
