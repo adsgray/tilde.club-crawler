@@ -12,8 +12,9 @@
 * _crawl.py_ fetches and parses user pages and inserts sentences into _tweet_ table
 * _tweet.py_ Does not actually tweet. Chooses a random row from _tweet_ table, marks it as used, and prints out a constructed tweet that includes link to originating page.
 * _tweet_tilde_quote_ a shell script that takes the output of _tweet.py_ and tweets it out. This is called from cron.
+* _report.py_ generates a list of the _top N_ most prolific writers
 
 ## TODO
-* add other ~sites
+* ~~add other ~sites~~
 * make crawl.py smart enough to only process recently updated pages (fetch the .JSON file)
-* add crawl.py to cron once it is smart enough.
+* add crawl.py to cron ~~once it is smart enough.~~ added it anyway.
