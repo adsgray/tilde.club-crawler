@@ -84,8 +84,8 @@ try:
 	users = numusers(con)
 	extra_users = numusers(con, 2)
 	# ya, sort by name. don't want a competition
-	topn_writers = sorted(topn(con, 10, 0), key=itemgetter(1))
-	topn_other_writers = sorted(topn(con, 10, 0, 2), key=itemgetter(1))
+	topn_writers = sorted(topn(con, 15, 0), key=itemgetter(1))
+	topn_other_writers = sorted(topn(con, 15, 0, 2), key=itemgetter(1))
 
 	if len(sys.argv) > 1 and sys.argv[1] == "json":
 		print json_report(users, extra_users, topn_writers, topn_other_writers)
