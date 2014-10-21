@@ -30,7 +30,7 @@ def mark_as_used(con, tweets):
 def construct_tweet_strings(tweets):
 	arr = []
 	for tweet in tweets:
-		arr.append('"{0}" {1}/~{2}'.format(tweet[1], tweet[3], tweet[2]))
+		arr.append('"%s" %s/~%s' % (tweet[1], tweet[3], tweet[2]))
 	return arr
 
 def fire_tweets(tweets):

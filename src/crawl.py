@@ -92,7 +92,7 @@ def process_all_users():
 
 		for row in rows:
 			try:
-				url = row[0].encode('utf-8') + '/~' + row[1].encode('utf-8')
+				url = """%s/~%s""" % (row[0], row[1])
 				process_user(con, url, row[2])
 				time.sleep(1)
 			except UnicodeDecodeError:
