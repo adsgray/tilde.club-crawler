@@ -39,6 +39,7 @@ def fire_tweets(tweets):
 		
 
 con = lite.connect('/home/agray/code/db/fortune.db')
+con.text_factory = str
 
 try:
 	if len(sys.argv) == 2:
