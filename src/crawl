@@ -1,0 +1,7 @@
+#!/bin/sh
+
+export PATH=$PATH:/home/agray/code/db/src
+
+nice -n 25 crawl.py > /dev/null 2>&1
+report_html
+report_json
