@@ -1,2 +1,6 @@
-30 0,1,2,13-23 * * * /home/agray/bin/tweet_fortune
-0,15,45 0,1,2,13-23 * * * /home/agray/bin/tweet_tilde_quote
+#30 0,1,2,13-23 * * * /home/agray/bin/tweet_fortune
+0,45 0,1,2,13-23 * * * /home/agray/bin/tweet_tilde_quote
+15 0,1,2,13-23 * * * /home/agray/bin/tweet_tilde_quote 2
+
+# ya 4:03 UTC
+3 4 * * * /home/agray/bin/crawl
